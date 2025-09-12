@@ -24,7 +24,7 @@ function NavBar() {
   return (
     <Sidebar className="bg-slate-50 w-[15vw] text-black h-screen">
       <SidebarHeader>
-        <h1 className="text-lg font-bold">FindMyDocs</h1>
+        <h1 className="text-lg font-bold hidden md:block ">FindMyDocs</h1>
       </SidebarHeader>
 
       <SidebarBody>

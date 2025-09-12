@@ -42,7 +42,7 @@ function DocumentForm({
   };
   return (
     <div className="h-[100vh] w-[85vw]">
-      <div className=" h-[8vh] flex justify-between items-center gap-5 p-2 pt-4">
+      <div className=" h-[8vh] md:flex  md:justify-between md:items-center gap-5 p-2 pt-4">
         <div className="w-full border">
           <input
             type="text"
@@ -52,7 +52,7 @@ function DocumentForm({
             placeholder="Enter the title.."
           />
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 my-2 sm:mt-0">
           <Button variant="ghost" onClick={() => setIsPreview(!isPreview)}>
             Preview
           </Button>
@@ -65,7 +65,7 @@ function DocumentForm({
         </div>
       </div>
       <ReactQuill
-        className=" h-[86vh] text-lg p-2"
+        className=" h-[86vh] text-lg p-2 mt-10 md:mt-3"
         value={text}
         onChange={setText}
       />
