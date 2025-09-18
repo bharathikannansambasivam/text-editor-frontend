@@ -11,6 +11,7 @@ import { Button } from "../catalyst/button";
 import Profile from "./Profile";
 import { searchTitle } from "../api/api";
 import { useNavigate } from "react-router-dom";
+import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/solid";
 function SearchBar({ setSearch }) {
   const [title, setTitle] = useState("");
   const [results, setResults] = useState([]);
@@ -30,7 +31,7 @@ function SearchBar({ setSearch }) {
 
   return (
     <>
-      <div className="m-5  w-[80vw]  flex rounded-xl gap-4 justify-center  items-center p-5">
+      <div className="  md:w-[80vw] border w-full  flex rounded-xl gap-4 justify-center  items-center p-5">
         <input
           type="text"
           className="border p-2 px-4 w-full rounded-xl "
@@ -39,10 +40,23 @@ function SearchBar({ setSearch }) {
           onChange={(e) => {
             setTitle(e.target.value);
           }}
+          onKeyDown={(e) => {
+            if (e.key == "Enter") {
+              handleSearch();
+            }
+          }}
         />
-        <Button className="" onClick={() => handleSearch()}>
-          Search
-        </Button>
+        <div className=" w-24 block md:hidden">
+          <MagnifyingGlassCircleIcon
+            className=" "
+            onClick={() => handleSearch()}
+          />
+        </div>
+        <div className="hidden md:block">
+          <Button className=" " onClick={() => handleSearch()}>
+            Search
+          </Button>
+        </div>
 
         <Dropdown>
           <DropdownButton outline className="h-full  px-2">
@@ -67,7 +81,6 @@ function SearchBar({ setSearch }) {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-
         <Profile />
       </div>
 

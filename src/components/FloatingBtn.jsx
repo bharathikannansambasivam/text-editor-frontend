@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function FloatingBtn() {
   const navigate = useNavigate();
   return (
-    <div className="fixed bottom-15 right-15 z-50 ">
+    <div className="hidden md:block fixed bottom-15 right-15 z-50 ">
       <Button
         className="cursor-pointer"
         onClick={() => navigate("/create-document")}

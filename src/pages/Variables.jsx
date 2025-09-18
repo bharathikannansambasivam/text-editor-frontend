@@ -41,7 +41,9 @@ function Variable() {
   };
   return (
     <div className="p-5">
-      <div className="mt-6 flex justify-end px-10">
+      <div className="mt-6 flex justify-between items-center px-10">
+        <h2 className="text-lg font-semibold">Variables</h2>
+
         <Button type="button" onClick={() => setIsOpen(true)}>
           Add Variable
         </Button>

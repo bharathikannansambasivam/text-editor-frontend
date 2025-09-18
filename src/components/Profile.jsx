@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "../catalyst/avatar";
-import PandaPic from "../../public/image.png";
+import PandaPic from "/image.png";
 
 function Profile() {
   return (

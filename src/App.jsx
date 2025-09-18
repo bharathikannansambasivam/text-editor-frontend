@@ -14,7 +14,7 @@ function App() {
           <NavBar />
         </div>
         <div></div>
-        <div className=" ml-[15vw] w-full ">
+        <div className=" md:ml-[15vw] w-full ">
           <Routes>
             <Route path="/" element={<Documents />}></Route>
             <Route path="/create-document" element={<CreateDocument />}></Route>

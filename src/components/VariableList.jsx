@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "../catalyst/button";
 import { deleteVariable, getVariables } from "../api/api";
+import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 function VariableList({ refresh, onEdit, setIsOpen }) {
   const [variables, setVariables] = useState([]);
@@ -42,13 +44,20 @@ function VariableList({ refresh, onEdit, setIsOpen }) {
                 {item.value}
               </td>
 
-              <td className="px-6 py-3 flex justify-center gap-3">
+              <td className="px-6 py-3 hidden  md:flex justify-center gap-3">
                 <Button
                   onClick={() => handleEdit(item.key, item.value, item._id)}
                 >
                   Edit
                 </Button>
                 <Button onClick={() => handleDel(item._id)}>Delete</Button>
+              </td>
+
+              <td className="px-6 py-3 h-10 md:hidden flex justify-center gap-3">
+                <PencilIcon
+                  onClick={() => handleEdit(item.key, item.value, item._id)}
+                />
+                <TrashIcon onClick={() => handleDel(item._id)} />
               </td>
             </tr>
           ))}
