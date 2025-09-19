@@ -6,6 +6,8 @@ import CreateDocument from "./pages/CreateDocument";
 
 import Variables from "./pages/Variables";
 import EditDocument from "./pages/EditDocument";
+import Settings from "./pages/Settings";
+import Themes from "./pages/Themes";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +22,8 @@ function App() {
             <Route path="/create-document" element={<CreateDocument />}></Route>
             <Route path="/variables" element={<Variables />}></Route>
             <Route path="/edit-document/:id" element={<EditDocument />}></Route>
+            <Route path="/settings" element={<Settings />}></Route>
+            <Route path="/themes" element={<Themes />}></Route>
           </Routes>
         </div>
       </div>

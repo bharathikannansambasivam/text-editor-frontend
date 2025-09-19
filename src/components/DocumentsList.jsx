@@ -21,10 +21,12 @@ function DocumentsList({ documents, setDocuments }) {
             <tr
               key={index}
               className="border-b hover:bg-gray-50 flex justify-between w-full  p-5 "
-              onClick={() => navigate(`/edit-document/${doc._id}`)}
             >
               {" "}
-              <div className="flex">
+              <div
+                className="flex cursor-pointer "
+                onClick={() => navigate(`/edit-document/${doc._id}`)}
+              >
                 <img src={pdf} className="h-10 w-20" alt="pdflogo" />
                 <div className="flex flex-col">
                   <td className=" font-medium text-gray-900 ">{doc.title}</td>
@@ -41,7 +43,7 @@ function DocumentsList({ documents, setDocuments }) {
                   className="h-5 w-5 text-gray-600   "
                   onClick={(e) => {
                     e.stopPropagation();
-                    setOpenMenu(doc._id);
+                    setOpenMenu(openMenu === doc._id ? null : doc._id);
                   }}
                 ></EllipsisVerticalIcon>
               </div>
@@ -68,7 +70,7 @@ function DocumentsList({ documents, setDocuments }) {
                       Share
                     </button>
                     <button
-                      className="w-full text-center text-gray-600 mt-2"
+                      className="w-full flex items-center justify-center gap-2 text-left px-4 py-3 text-sm hover:bg-gray-100 text-black"
                       onClick={() => setOpenMenu(null)}
                     >
                       Cancel

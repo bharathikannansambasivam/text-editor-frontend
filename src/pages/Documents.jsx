@@ -62,7 +62,7 @@ function Documents() {
           <div className="px-5 mt-10">
             <h2 className="text-lg font-semibold mb-4">All Documents</h2>
 
-            <div className="overflow-x-auto bg-white rounded-xl shadow border">
+            <div className="overflow-x-auto bg-white rounded-xl shadow  border ">
               <DocumentsList
                 documents={documents}
                 setDocuments={setDocuments}

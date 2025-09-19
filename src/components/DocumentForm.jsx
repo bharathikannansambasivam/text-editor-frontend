@@ -8,6 +8,7 @@ import Preview from "./Preview";
 import {
   ArrowDownTrayIcon,
   CheckCircleIcon,
+  EllipsisVerticalIcon,
   EyeIcon,
 } from "@heroicons/react/24/solid";
 
@@ -20,6 +21,7 @@ function DocumentForm({
 }) {
   const [title, setTitle] = useState(initialTitle);
   const [isPreview, setIsPreview] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [text, setText] = useState(initialText);
   const navigate = useNavigate();
   useEffect(() => {
@@ -47,42 +49,24 @@ function DocumentForm({
   };
   return (
     <div className="h-[100vh] md:w-[85vw]">
-      <div className="flex gap-3 justify-between p-4">
-        <button
-          onClick={() => setIsPreview(!isPreview)}
-          className="flex items-center gap-1 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700"
-        >
-          <EyeIcon className="h-5 w-5" />
-          Preview
-        </button>
-        <button
-          onClick={handleSave}
-          className="flex items-center gap-1 px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white"
-        >
-          <CheckCircleIcon className="h-5 w-5" />
-          {mode === "create" ? "Save" : "Update"}
-        </button>
-        <button
-          onClick={downloadPdf}
-          className="flex items-center gap-1 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white"
-        >
-          <ArrowDownTrayIcon className="h-5 w-5" />
-          Download
-        </button>
-      </div>
-      <div className=" h-[8vh] md:flex  md:justify-between md:items-center gap-5 p-2 pt-4">
-        <div className="w-full border">
+      <div className="flex  justify-center items-center p-1 ">
+        <div className=" h-[8vh] w-[90vw] md:flex  md:justify-between md:items-center gap-2 p-4 ">
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border w-full p-2  "
+            className="border w-full p-2 rounded-lg "
             placeholder="Enter the title.."
           />
         </div>
+        <EllipsisVerticalIcon
+          className="h-10 "
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
       </div>
+
       <ReactQuill
-        className=" h-[86vh] text-lg p-2 mt-10 md:mt-3"
+        className="md:h-[86vh] h-[80vh] text-lg p-2 md:mt-3"
         value={text}
         onChange={setText}
       />
@@ -92,6 +76,45 @@ function DocumentForm({
           text={replacePlaceholders(text)}
           onClose={setIsPreview}
         />
+      )}
+
+      {isMenuOpen && (
+        <div className="absolute right-4 top-14 z-50">
+          <div className="flex flex-col min-w-[180px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+            <button
+              onClick={() => {
+                setIsPreview(!isPreview);
+                setIsMenuOpen(false);
+              }}
+              className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 text-gray-700"
+            >
+              <EyeIcon className="h-4 w-4" />
+              Preview
+            </button>
+
+            <button
+              onClick={() => {
+                handleSave();
+                setIsMenuOpen(false);
+              }}
+              className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 text-gray-700"
+            >
+              <CheckCircleIcon className="h-4 w-4 text-green-600" />
+              {mode === "create" ? "Save" : "Update"}
+            </button>
+
+            <button
+              onClick={() => {
+                downloadPdf();
+                setIsMenuOpen(false);
+              }}
+              className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 text-gray-700"
+            >
+              <ArrowDownTrayIcon className="h-4 w-4 text-blue-600" />
+              Download
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

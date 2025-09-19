@@ -31,7 +31,7 @@ function SearchBar({ setSearch }) {
 
   return (
     <>
-      <div className="  md:w-[80vw] border w-full  flex rounded-xl gap-4 justify-center  items-center p-5">
+      <div className="  md:w-[80vw]  w-full  flex rounded-xl gap-4 justify-center  items-center ">
         <input
           type="text"
           className="border p-2 px-4 w-full rounded-xl "
