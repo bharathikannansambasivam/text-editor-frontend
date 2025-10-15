@@ -105,7 +105,7 @@ function NavBar() {
             <span className="text-xs text-black">Settings</span>
           </Link>
 
-          <Link to="/help" className="flex flex-col items-center">
+          <Link to="/themes" className="flex flex-col items-center">
             <SwatchIcon className="w-6 h-6 text-black" />
             <span className="text-xs text-black">Theme</span>
           </Link>

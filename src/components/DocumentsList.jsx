@@ -22,7 +22,6 @@ function DocumentsList({ documents, setDocuments }) {
               key={index}
               className="border-b hover:bg-gray-50 flex justify-between w-full  p-5 "
             >
-              {" "}
               <div
                 className="flex cursor-pointer "
                 onClick={() => navigate(`/edit-document/${doc._id}`)}

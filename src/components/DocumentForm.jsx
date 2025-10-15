@@ -48,35 +48,44 @@ function DocumentForm({
     navigate("/");
   };
   return (
-    <div className="h-[100vh] md:w-[85vw]">
-      <div className="flex  justify-center items-center p-1 ">
-        <div className=" h-[8vh] w-[90vw] md:flex  md:justify-between md:items-center gap-2 p-4 ">
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="border w-full p-2 rounded-lg "
-            placeholder="Enter the title.."
-          />
-        </div>
+    <div className=" md:w-[85vw ] min-h-screen flex flex-col bg-gray-50">
+      <div className="  flex  justify-between items-center gap-2 md:gap-6 p-3 md:p-4  ">
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="border w-full p-2 rounded-lg "
+          placeholder="Enter the title.."
+        />
         <EllipsisVerticalIcon
-          className="h-10 "
+          className="h-8 w-8 md:hidden text-gray-600 cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         />
-      </div>
 
-      <ReactQuill
-        className="md:h-[86vh] h-[80vh] text-lg p-2 md:mt-3"
-        value={text}
-        onChange={setText}
-      />
-      {isPreview && (
-        <Preview
-          title={title}
-          text={replacePlaceholders(text)}
-          onClose={setIsPreview}
-        />
-      )}
+        <div className="hidden md:flex gap-3">
+          <button
+            onClick={() => setIsPreview(!isPreview)}
+            className="flex items-center gap-1 px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 text-sm"
+          >
+            <EyeIcon className="h-4 w-4" /> Preview
+          </button>
+
+          <button
+            onClick={handleSave}
+            className="flex items-center gap-1 px-3 py-2 rounded-md bg-green-100 hover:bg-green-200 text-sm"
+          >
+            <CheckCircleIcon className="h-4 w-4 text-green-600" />
+            {mode === "create" ? "Save" : "Update"}
+          </button>
+
+          <button
+            onClick={downloadPdf}
+            className="flex items-center gap-1 px-3 py-2 rounded-md bg-blue-100 hover:bg-blue-200 text-sm"
+          >
+            <ArrowDownTrayIcon className="h-4 w-4 text-blue-600" /> Download
+          </button>
+        </div>
+      </div>
 
       {isMenuOpen && (
         <div className="absolute right-4 top-14 z-50">
@@ -115,6 +124,18 @@ function DocumentForm({
             </button>
           </div>
         </div>
+      )}
+      <ReactQuill
+        className="md:h-[86vh] h-[80vh] text-lg p-2 md:mt-3"
+        value={text}
+        onChange={setText}
+      />
+      {isPreview && (
+        <Preview
+          title={title}
+          text={replacePlaceholders(text)}
+          onClose={setIsPreview}
+        />
       )}
     </div>
   );
