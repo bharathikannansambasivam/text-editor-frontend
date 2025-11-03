@@ -6,12 +6,13 @@ import {
   DropdownItem,
   DropdownMenu,
 } from "../catalyst/dropdown";
-import { ArrowsUpDownIcon, CalendarIcon } from "@heroicons/react/24/outline";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
+import SwapVertRoundedIcon from "@mui/icons-material/SwapVertRounded";
 import { Button } from "../catalyst/button";
 import Profile from "./Profile";
 import { searchTitle } from "../api/api";
 import { useNavigate } from "react-router-dom";
-import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/solid";
 function SearchBar({ setSearch }) {
   const [title, setTitle] = useState("");
   const [results, setResults] = useState([]);
@@ -47,10 +48,7 @@ function SearchBar({ setSearch }) {
           }}
         />
         <div className=" w-24 block md:hidden">
-          <MagnifyingGlassCircleIcon
-            className=" "
-            onClick={() => handleSearch()}
-          />
+          <SearchRoundedIcon className=" " onClick={() => handleSearch()} />
         </div>
         <div className="hidden md:block">
           <Button className=" " onClick={() => handleSearch()}>
@@ -60,23 +58,23 @@ function SearchBar({ setSearch }) {
 
         <Dropdown>
           <DropdownButton outline className="h-full  px-2">
-            <ArrowsUpDownIcon className="h-5 w-10 !text-black" color="red" />
+            <SwapVertRoundedIcon className="h-5 w-10 !text-black" color="red" />
           </DropdownButton>
           <DropdownMenu className="border rounded-md shadow-md bg-white">
             <DropdownItem>
-              <CalendarIcon className="h-4 w-4 mr-2" />
+              <CalendarMonthRoundedIcon className="h-4 w-4 mr-2" />
               Last 7 days
             </DropdownItem>
             <DropdownItem>
-              <CalendarIcon className="h-4 w-4 mr-2" />
+              <CalendarMonthRoundedIcon className="h-4 w-4 mr-2" />
               Last 30 days
             </DropdownItem>
             <DropdownItem>
-              <CalendarIcon className="h-4 w-4 mr-2" />
+              <CalendarMonthRoundedIcon className="h-4 w-4 mr-2" />
               Last 6 Months
             </DropdownItem>
             <DropdownItem>
-              <CalendarIcon className="h-4 w-4 mr-2" />
+              <CalendarMonthRoundedIcon className="h-4 w-4 mr-2" />
               Last 1 year
             </DropdownItem>
           </DropdownMenu>

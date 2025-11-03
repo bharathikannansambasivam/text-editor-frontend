@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
-import { Button } from "../catalyst/button";
 import { createDocument, getVariables } from "../api/api";
-import html2pdf from "html2pdf.js";
 import DocumentForm from "../components/DocumentForm";
 
 function CreateDocument() {
