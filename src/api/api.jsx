@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
-const BASE_URL = "https://rich-text-editor-backend-ft3m.onrender.com";
+const BASE_URL = "https://text-editor-backend-5.onrender.com/";
 
 export const getDocuments = async () => {
   try {
@@ -92,7 +92,7 @@ export const searchTitle = async (query) => {
 
 export const login = async (values) => {
   try {
-    const response = await axios.post("http://localhost:3000/login", {
+    const response = await axios.post(`${BASE_URL}/login`, {
       values,
     });
     localStorage.setItem("userId", response.data.userId);
@@ -106,7 +106,7 @@ export const login = async (values) => {
 
 export const signup = async (values) => {
   try {
-    const response = await axios.post("http://localhost:3000/signup", {
+    const response = await axios.post(`${BASE_URL}/signup`, {
       values,
     });
     console.log(response);
