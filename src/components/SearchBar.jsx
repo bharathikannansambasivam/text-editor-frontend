@@ -32,7 +32,7 @@ function SearchBar({ setSearch }) {
 
   return (
     <>
-      <div className="  md:w-[80vw]  w-full  flex rounded-xl gap-4 justify-center  items-center ">
+      <div className="  md:w-[80vw]   w-full  flex rounded-xl gap-4 justify-center  items-center ">
         <input
           type="text"
           className="border p-2 px-4 w-full rounded-xl "
@@ -47,7 +47,7 @@ function SearchBar({ setSearch }) {
             }
           }}
         />
-        <div className=" w-24 block md:hidden">
+        <div className="  block md:hidden">
           <SearchRoundedIcon className=" " onClick={() => handleSearch()} />
         </div>
         <div className="hidden md:block">

@@ -28,7 +28,7 @@ function NavBar() {
 
         <SidebarBody>
           <SidebarSection>
-            <Link to="/">
+            <Link to="/dashboard">
               <SidebarItem>
                 <HomeRoundedIcon className="w-5 h-5 text-black" />
                 <SidebarLabel className="text-black">Home</SidebarLabel>
@@ -77,13 +77,13 @@ function NavBar() {
       <nav
         className="
     fixed bottom-0 left-0 w-full 
-    bg-slate-50 border-t md:hidden 
-    z-[99999] pointer-events-auto
+     border-t md:hidden  bg-amber-400
+    z-[99999] pointer-events-auto 
   "
       >
         {" "}
-        <div className="flex justify-around items-center py-2">
-          <Link to="/" className="flex flex-col items-center">
+        <div className="flex justify-around items-center py-2  ">
+          <Link to="/dashboard" className="flex flex-col items-center">
             <HomeRoundedIcon className="w-6 h-6 text-black" />
             <span className="text-xs text-black">Home</span>
           </Link>

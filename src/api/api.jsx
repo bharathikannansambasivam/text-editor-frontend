@@ -4,7 +4,9 @@ const BASE_URL = "https://rich-text-editor-backend-ft3m.onrender.com";
 
 export const getDocuments = async () => {
   try {
-    const res = await axios.get(`${BASE_URL}/get-documents`);
+    const userId = localStorage.getItem("userId");
+
+    const res = await axios.get(`${BASE_URL}/get-documents?userId=${userId}`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -83,6 +85,31 @@ export const searchTitle = async (query) => {
     const res = await axios.get(`${BASE_URL}/search?q=${query}`);
     console.log(res.data);
     return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const login = async (values) => {
+  try {
+    const response = await axios.post("http://localhost:3000/login", {
+      values,
+    });
+    localStorage.setItem("userId", response.data.userId);
+    console.log(response);
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const signup = async (values) => {
+  try {
+    const response = await axios.post("http://localhost:3000/signup", {
+      values,
+    });
+    console.log(response);
   } catch (error) {
     console.log(error);
   }

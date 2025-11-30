@@ -45,7 +45,7 @@ function DocumentForm({
   };
   const handleSave = () => {
     onSave({ title, text });
-    navigate("/");
+    navigate("/dashboard");
   };
   return (
     <div className=" md:w-[85vw ] min-h-screen flex flex-col bg-gray-50">
@@ -126,7 +126,7 @@ function DocumentForm({
         </div>
       )}
       <ReactQuill
-        className="md:h-[86vh] h-[80vh] text-lg p-2 md:mt-3"
+        className="md:h-[86vh]  text-lg p-2 md:mt-3 "
         value={text}
         onChange={setText}
       />

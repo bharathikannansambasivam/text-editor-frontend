@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DocumentForm from "../components/DocumentForm";
 import { getDocument, getVariables, updateDocument } from "../api/api";
 import { useNavigate, useParams } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function EditDocument() {
   const [variables, setVariables] = useState([]);
@@ -31,7 +32,7 @@ function EditDocument() {
   const handleUpdate = async ({ title, text }) => {
     try {
       await updateDocument(title, text, id);
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {}
   };
   useEffect(() => {
@@ -40,7 +41,7 @@ function EditDocument() {
   }, [id]);
 
   return (
-    <div>
+    <div className="mb-10">
       <DocumentForm
         mode="edit"
         variables={variables}
@@ -48,6 +49,9 @@ function EditDocument() {
         initialTitle={oldTitle}
         onSave={handleUpdate}
       />
+      <div className="md:hidden fixed ">
+        <NavBar />
+      </div>
     </div>
   );
 }
