@@ -17,8 +17,13 @@ function Login() {
     validationSchema: loginSchema,
     onSubmit: async (values) => {
       console.log("from login.jsx", values);
-      const response = await login({ values });
-      return response;
+      const response = await login(values);
+
+      if (response?.data?.userId) {
+        navigate("/dashboard");
+      } else {
+        alert("Invalid credentials");
+      }
     },
   });
 

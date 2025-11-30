@@ -1,7 +1,6 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
-const BASE_URL = "https://text-editor-backend-5.onrender.com/";
-
+import { useNavigate, useParams } from "react-router-dom";
+const BASE_URL = "https://text-editor-backend-5.onrender.com";
 export const getDocuments = async () => {
   try {
     const userId = localStorage.getItem("userId");
@@ -20,9 +19,12 @@ export const getDocument = async (id) => {
 };
 export const createDocument = async (title, text) => {
   try {
+    const userId = localStorage.getItem("userId");
+
     const res = await axios.post(`${BASE_URL}/create-document`, {
       title,
       text,
+      userId,
     });
     return res.data;
   } catch (error) {}
@@ -92,11 +94,8 @@ export const searchTitle = async (query) => {
 
 export const login = async (values) => {
   try {
-    const response = await axios.post(`${BASE_URL}/login`, {
-      values,
-    });
+    const response = await axios.post(`${BASE_URL}/login`, values);
     localStorage.setItem("userId", response.data.userId);
-    console.log(response);
 
     return response;
   } catch (error) {
@@ -106,9 +105,12 @@ export const login = async (values) => {
 
 export const signup = async (values) => {
   try {
-    const response = await axios.post(`${BASE_URL}/signup`, {
-      values,
-    });
+    const payload = {
+      name: values.userName,
+      email: values.email,
+      password: values.password,
+    };
+    const response = await axios.post(`${BASE_URL}/signup`, payload);
     console.log(response);
   } catch (error) {
     console.log(error);
