@@ -5,6 +5,7 @@ import loader from "../../public/loading.svg";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 function VariableList({ refresh, onEdit, setIsOpen }) {
+  const userid = localStorage.getItem("fmd_user_id");
   const [variables, setVariables] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const fetchVariables = async () => {

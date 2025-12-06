@@ -19,7 +19,7 @@ function GetStarted() {
 
         <button
           className="mt-8 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 px-8 py-3 text-white font-semibold rounded-2xl shadow-md text-lg transition active:scale-95"
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/signup")}
         >
           Get Started →
         </button>

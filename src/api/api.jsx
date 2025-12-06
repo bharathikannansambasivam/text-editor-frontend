@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-const BASE_URL = "https://text-editor-backend-5.onrender.com";
+const BASE_URL =
+  "https://text-editor-backend-5.onrender.com" || "http://localhost:3000";
+
 export const getDocuments = async () => {
   try {
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("fmd_user_id");
 
     const res = await axios.get(`${BASE_URL}/get-documents?userId=${userId}`);
     return res.data;
@@ -19,7 +20,7 @@ export const getDocument = async (id) => {
 };
 export const createDocument = async (title, text) => {
   try {
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("fmd_user_id");
 
     const res = await axios.post(`${BASE_URL}/create-document`, {
       title,
@@ -45,11 +46,14 @@ export const deleteDocument = async (id) => {
   } catch (error) {}
 };
 
-export const createVariable = async (key, value) => {
+export const createVariable = async (key, value, userId) => {
   try {
+    const userId = localStorage.getItem("fmd_user_id");
+
     const response = await axios.post(`${BASE_URL}/create-variable`, {
       key,
       value,
+      userId,
     });
     return response.data;
   } catch (error) {}
@@ -57,7 +61,11 @@ export const createVariable = async (key, value) => {
 
 export const getVariables = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/get-variables`);
+    const userId = localStorage.getItem("fmd_user_id");
+
+    const response = await axios.get(
+      `${BASE_URL}/get-variables?userId=${userId}`
+    );
     return response;
   } catch (error) {}
 };
@@ -95,7 +103,7 @@ export const searchTitle = async (query) => {
 export const login = async (values) => {
   try {
     const response = await axios.post(`${BASE_URL}/login`, values);
-    localStorage.setItem("userId", response.data.userId);
+    localStorage.setItem("fmd_user_id", response.data.userId);
 
     return response;
   } catch (error) {
