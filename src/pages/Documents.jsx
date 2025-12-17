@@ -44,24 +44,35 @@ function Documents() {
               <img src={loader} alt="" />
             </div>
           ) : (
-            <div className=" px-5 flex gap-5 overflow-x-auto ">
-              {recentDoc.map((doc, index) => (
-                <div
-                  onClick={() => navigate(`/edit-document/${doc._id}`)}
-                  key={index}
-                  className={`bg-white border-l-4 border ${getRandomColor()}
+            <div className="  ">
+              {recentDoc.length == 0 ? (
+                <p className="flex justify-center  text-sm  w-screen p-4 text-gray-700  font-semibold">
+                  No recent Documents
+                </p>
+              ) : (
+                <div className=" px-5 flex gap-5 overflow-x-auto ">
+                  {" "}
+                  {recentDoc.map((doc, index) => (
+                    <div
+                      onClick={() => navigate(`/edit-document/${doc._id}`)}
+                      key={index}
+                      className={`bg-white border-l-4 border ${getRandomColor()}
                  w-64 h-50 p-5 rounded-2xl flex flex-col justify-between flex-shrink-0  `}
-                >
-                  <div className="flex  ">
-                    <p className="text-lg font-bold truncate">{doc.title}</p>
-                  </div>
+                    >
+                      <div className="flex  ">
+                        <p className="text-lg font-bold truncate">
+                          {doc.title}
+                        </p>
+                      </div>
 
-                  <div
-                    dangerouslySetInnerHTML={{ __html: doc.text }}
-                    className="line-clamp-6 text-sm overflow-hidden "
-                  />
+                      <div
+                        dangerouslySetInnerHTML={{ __html: doc.text }}
+                        className="line-clamp-6 text-sm overflow-hidden "
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
 
               <FloatingBtn />
             </div>
@@ -75,7 +86,7 @@ function Documents() {
                 <img src={loader} alt="" />
               </div>
             ) : (
-              <div className="overflow-x-auto bg-white rounded-xl shadow  border ">
+              <div className="    ">
                 <DocumentsList
                   documents={documents}
                   setDocuments={setDocuments}

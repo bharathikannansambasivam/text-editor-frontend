@@ -1,6 +1,5 @@
 import axios from "axios";
-const BASE_URL =
-  "https://text-editor-backend-5.onrender.com" || "http://localhost:3000";
+const BASE_URL = "https://text-editor-backend-5.onrender.com";
 
 export const getDocuments = async () => {
   try {
@@ -104,6 +103,8 @@ export const login = async (values) => {
   try {
     const response = await axios.post(`${BASE_URL}/login`, values);
     localStorage.setItem("fmd_user_id", response.data.userId);
+    localStorage.setItem("fmd_user_email", response.data.email);
+    localStorage.setItem("fmd_user_name", response.data.name);
 
     return response;
   } catch (error) {
