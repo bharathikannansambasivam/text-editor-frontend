@@ -1,10 +1,12 @@
-import React from "react";
 import { WrenchScrewdriverIcon } from "@heroicons/react/24/solid";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
+import React from "react";
 
-export default function Settings() {
+function AI() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50 text-center">
-      <WrenchScrewdriverIcon className="h-16 w-16 text-gray-400 mb-4" />
+      <SmartToyIcon className="h-64 w-64  text-gray-400 mb-4" />
+
       <h1 className="text-2xl font-semibold text-gray-700">
         Under Construction
       </h1>
@@ -14,3 +16,5 @@ export default function Settings() {
     </div>
   );
 }
+
+export default AI;

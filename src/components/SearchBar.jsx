@@ -21,6 +21,10 @@ function SearchBar({ setSearch }) {
   const navigate = useNavigate();
   const handleSearch = async () => {
     try {
+      if (title.trim() == "") {
+        alert("Enter a title to search");
+        return;
+      }
       const data = await searchTitle(title);
       setResults(data);
       setSearched(true);

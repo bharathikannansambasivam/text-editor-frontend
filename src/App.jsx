@@ -11,11 +11,11 @@ import {
 import CreateDocument from "./pages/CreateDocument";
 import Variables from "./pages/Variables";
 import EditDocument from "./pages/EditDocument";
-import Settings from "./pages/Settings";
-import Themes from "./pages/Themes";
+import AI from "./pages/AI";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import GetStarted from "./pages/GetStarted";
+import Help from "./pages/Help";
 
 const ProtectedRoute = ({ children }) => {
   const userId = localStorage.getItem("fmd_user_id");
@@ -29,7 +29,7 @@ const PublicRoute = ({ children }) => {
 
 function LayoutWrapper() {
   const location = useLocation();
-  const route = ["/", "/login", "/signup"];
+  const route = ["/", "/login", "/signup", "/help"];
   const hideNav = route.includes(location.pathname);
 
   return (
@@ -103,19 +103,19 @@ function LayoutWrapper() {
           />
 
           <Route
-            path="/settings"
+            path="/help"
             element={
               <ProtectedRoute>
-                <Settings />
+                <Help />
               </ProtectedRoute>
             }
           />
 
           <Route
-            path="/themes"
+            path="/AI"
             element={
               <ProtectedRoute>
-                <Themes />
+                <AI />
               </ProtectedRoute>
             }
           />

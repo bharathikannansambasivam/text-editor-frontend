@@ -9,13 +9,12 @@ import {
   SidebarLabel,
   SidebarSpacer,
 } from "../catalyst/sidebar";
-
+import SmartToyIcon from "@mui/icons-material/SmartToy";
 import TuneRoundedIcon from "@mui/icons-material/TuneRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import PostAddIcon from "@mui/icons-material/PostAdd";
-import SettingsSuggestRoundedIcon from "@mui/icons-material/SettingsSuggestRounded";
-import PaletteRoundedIcon from "@mui/icons-material/PaletteRounded";
-
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -52,17 +51,17 @@ function NavBar() {
 
           <SidebarSpacer className="h-8" />
           <SidebarSection>
-            <Link to="/settings">
+            <Link to="/help">
               <SidebarItem>
-                <SettingsSuggestRoundedIcon className="w-5 h-5 text-black" />
-                <SidebarLabel className="text-black">Settings</SidebarLabel>
+                <ContactSupportIcon className="w-5 h-5 text-black" />
+                <SidebarLabel className="text-black">Help</SidebarLabel>
               </SidebarItem>
             </Link>
 
-            <Link to="/themes">
+            <Link to="/AI">
               <SidebarItem>
-                <PaletteRoundedIcon className="w-5 h-5 text-black" />
-                <SidebarLabel className="text-black">Theme</SidebarLabel>
+                <SmartToyIcon className="w-5 h-5 text-black" />
+                <SidebarLabel className="text-black">AI</SidebarLabel>
               </SidebarItem>
             </Link>
           </SidebarSection>
@@ -77,8 +76,8 @@ function NavBar() {
       <nav
         className="
     fixed bottom-0 left-0 w-full 
-     border-t md:hidden  bg-amber-400
-    z-[99999] pointer-events-auto 
+     border-t md:hidden 
+    z-[99] pointer-events-auto 
   "
       >
         {" "}
@@ -97,14 +96,14 @@ function NavBar() {
             <PostAddIcon className="w-6 h-6 text-black" />
             <span className="text-xs text-black">Create</span>
           </Link>
-          <Link to="/settings" className="flex flex-col items-center">
-            <SettingsSuggestRoundedIcon className="w-6 h-6 text-black" />
-            <span className="text-xs text-black">Settings</span>
+          <Link to="/help" className="flex flex-col items-center">
+            <ContactSupportIcon className="w-6 h-6 text-black" />
+            <span className="text-xs text-black">Help</span>
           </Link>
 
-          <Link to="/themes" className="flex flex-col items-center">
-            <PaletteRoundedIcon className="w-6 h-6 text-black" />
-            <span className="text-xs text-black">Theme</span>
+          <Link to="/AI" className="flex flex-col items-center">
+            <SmartToyIcon className="w-6 h-6 text-black" />
+            <span className="text-xs text-black">AI</span>
           </Link>
         </div>
       </nav>
