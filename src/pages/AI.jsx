@@ -53,7 +53,7 @@ function AI() {
           </div>
         ))}
       </div>
-      <div className="p-4 border-t bg-white mb-15 md:mb-0 flex gap-2">
+      <div className="p-4 border-t bg-white md:mb-0 flex gap-2 z-[1]">
         <input
           className="flex-1 border rounded-xl px-3 py-2 outline-none"
           type="text"
