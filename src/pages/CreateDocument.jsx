@@ -28,7 +28,7 @@ function CreateDocument() {
     }
   };
   return (
-    <div className="md:flex h-screen">
+    <div className="md:flex">
       <div className="  ">
         <NavBar />
       </div>

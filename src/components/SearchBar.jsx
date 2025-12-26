@@ -65,7 +65,7 @@ function SearchBar({ setSearch }) {
           <DropdownButton outline className="h-full  px-2">
             <SwapVertRoundedIcon className="h-5 w-10 !text-black" color="red" />
           </DropdownButton>
-          <DropdownMenu className="border rounded-md shadow-md bg-white">
+          <DropdownMenu className=" rounded-md shadow-md bg-white">
             <DropdownItem>
               <CalendarMonthRoundedIcon className="h-4 w-4 mr-2" />
               Last 7 days

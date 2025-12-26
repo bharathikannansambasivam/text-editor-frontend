@@ -127,3 +127,15 @@ export const signup = async (values) => {
     console.log(error);
   }
 };
+
+export const chatWithAI = async (message) => {
+  try {
+    const response = await axios.post("http://localhost:3000/ai", {
+      message: message,
+    });
+    console.log(response.data.reply);
+    return response.data.reply;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

@@ -126,7 +126,7 @@ function DocumentForm({
         </div>
       )}
       <ReactQuill
-        className="md:h-[86vh] h-[65%]    text-lg p-2 "
+        className="md:h-[86vh]   text-lg p-2 "
         value={text}
         onChange={setText}
       />
