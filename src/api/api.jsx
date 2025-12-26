@@ -130,7 +130,7 @@ export const signup = async (values) => {
 
 export const chatWithAI = async (message) => {
   try {
-    const response = await axios.post("http://localhost:3000/ai", {
+    const response = await axios.post(`${BASE_URL}/ai`, {
       message: message,
     });
     console.log(response.data.reply);
