@@ -15,7 +15,7 @@ function DocumentsList({ documents, setDocuments }) {
   };
   return (
     <div className="">
-      <table className="min-w-full text-left text-sm  text-gray-700 mb-9 md:mb-0">
+      <table className="min-w-full  text-left text-sm  text-gray-700 mb-9 md:mb-0">
         <tbody className="">
           {allDocs.length === 0 ? (
             <p className="flex justify-center  p-4  font-semibold">
@@ -90,7 +90,6 @@ function DocumentsList({ documents, setDocuments }) {
             </div>
           )}
         </tbody>
-        {console.log(openMenu)}
       </table>
     </div>
   );

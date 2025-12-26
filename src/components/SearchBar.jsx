@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Dropdown,
   DropdownButton,
-  DropdownHeading,
   DropdownItem,
   DropdownMenu,
 } from "../catalyst/dropdown";
@@ -25,7 +24,9 @@ function SearchBar({ setSearch }) {
         alert("Enter a title to search");
         return;
       }
-      const data = await searchTitle(title);
+      const userId = localStorage.getItem("fmd_user_id");
+      const data = await searchTitle(title, userId);
+      console.log(title);
       setResults(data);
       setSearched(true);
       setSearch(true);
@@ -95,14 +96,16 @@ function SearchBar({ setSearch }) {
                 onClick={() => navigate(`/edit-document/${doc._id}`)}
                 className="
         border rounded-lg p-4 cursor-pointer 
-        hover:bg-gray-50 hover:shadow transition
+        hover:bg-gray-50 hover:shadow transition mt-10
       "
               >
+                {console.log(doc)}
                 <h3 className="font-semibold text-lg">{doc.title}</h3>
-                {doc.description && (
-                  <p className="text-gray-500 text-sm mt-1 line-clamp-2">
-                    {doc.description}
-                  </p>
+                {doc.text && (
+                  <p
+                    className="text-gray-500 text-sm mt-1 line-clamp-2"
+                    dangerouslySetInnerHTML={{ __html: doc.text }}
+                  ></p>
                 )}
               </div>
             ))}

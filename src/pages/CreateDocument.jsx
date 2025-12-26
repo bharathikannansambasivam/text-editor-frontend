@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "react-quill-new/dist/quill.snow.css";
 import { createDocument, getVariables } from "../api/api";
 import DocumentForm from "../components/DocumentForm";
+import NavBar from "../components/NavBar";
 
 function CreateDocument() {
   const [variables, setVariables] = useState([]);
@@ -27,7 +28,14 @@ function CreateDocument() {
     }
   };
   return (
-    <DocumentForm onSave={handleSave} variables={variables} mode="create" />
+    <div className="md:flex h-screen">
+      <div className="  ">
+        <NavBar />
+      </div>
+      <div className=" ">
+        <DocumentForm onSave={handleSave} variables={variables} mode="create" />
+      </div>
+    </div>
   );
 }
 

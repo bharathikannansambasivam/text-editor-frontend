@@ -89,9 +89,11 @@ export const editVariable = async (key, value, id) => {
   }
 };
 
-export const searchTitle = async (query) => {
+export const searchTitle = async (query, userId) => {
   try {
-    const res = await axios.get(`${BASE_URL}/search?q=${query}`);
+    const res = await axios.get(
+      `${BASE_URL}/search?q=${query}&userId=${userId}`
+    );
     console.log(res.data);
     return res.data;
   } catch (error) {

@@ -29,7 +29,7 @@ const PublicRoute = ({ children }) => {
 
 function LayoutWrapper() {
   const location = useLocation();
-  const route = ["/", "/login", "/signup", "/help"];
+  const route = ["/", "/login", "/signup", "/help", "/create-document"];
   const hideNav = route.includes(location.pathname);
 
   return (

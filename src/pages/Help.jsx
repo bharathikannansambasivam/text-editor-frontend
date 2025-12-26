@@ -52,7 +52,7 @@ function Help() {
         <h3 className="text-2xl font-bold">Help & Support</h3>
       </div>
 
-      <img className="h-48" src={service} alt="" />
+      <img className="h-32" src={service} alt="" />
 
       <div className="text-center text-gray-600 mt-4">
         <h2 className="sm:text-4xl text-2xl font-semibold">

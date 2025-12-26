@@ -48,7 +48,7 @@ function DocumentForm({
     navigate("/dashboard");
   };
   return (
-    <div className=" md:w-[85vw ] min-h-screen flex flex-col bg-gray-50">
+    <div className=" md:w-[85vw] h-screen w-screen bottom-4 flex flex-col bg-gray-50">
       <div className="  flex  justify-between items-center gap-2 md:gap-6 p-3 md:p-4  ">
         <input
           type="text"
@@ -126,7 +126,7 @@ function DocumentForm({
         </div>
       )}
       <ReactQuill
-        className="md:h-[86vh] h-[80vh] text-lg p-2 md:mt-3 "
+        className="md:h-[86vh] h-[65%]    text-lg p-2 "
         value={text}
         onChange={setText}
       />
