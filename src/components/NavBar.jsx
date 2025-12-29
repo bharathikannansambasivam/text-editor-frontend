@@ -75,7 +75,7 @@ function NavBar() {
 
       <nav
         className="
-    fixed bottom-0 left-0 w-full 
+    fixed  bottom-0 left-0 w-full 
      border-t md:hidden z-[999]
     pointer-events-auto bg-white
   "

@@ -36,7 +36,7 @@ function AI() {
           <h2 className="font-semibold">AI Assistant</h2>
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 mb-20 md:mb-0">
         {AIResponses.map((item, index) => (
           <div key={index} className="space-y-2">
             <div className="flex justify-end">
@@ -53,7 +53,7 @@ function AI() {
           </div>
         ))}
       </div>
-      <div className="p-4 border-t bg-white md:mb-0 flex gap-2 fixed bottom-0 w-full md:static  z-[10]">
+      <div className="p-4 border-t bg-white md:mb-0  flex gap-2 fixed bottom-0 w-full md:static  z-[10]">
         <input
           className="flex-1 border rounded-xl px-3 py-2 outline-none"
           type="text"

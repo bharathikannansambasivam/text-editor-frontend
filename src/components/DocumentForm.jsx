@@ -126,7 +126,7 @@ function DocumentForm({
         </div>
       )}
       <ReactQuill
-        className=" h-[86vh]   text-lg p-2 "
+        className=" h-[85vh]  overflow-auto  sm:overflow-hidden bg-gray-50   text-lg p-2 "
         value={text}
         onChange={setText}
       />

@@ -28,9 +28,8 @@ function CreateDocument() {
     }
   };
   return (
-    <div className="md:flex mb-12 md:mb-0 ">
+    <div className="md:flex">
       <div className="  ">
-        {" "}
         <NavBar />
       </div>
       <div className=" ">
