@@ -41,7 +41,7 @@ function EditDocument() {
   }, [id]);
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 md:mb-0 ">
       <DocumentForm
         mode="edit"
         variables={variables}
