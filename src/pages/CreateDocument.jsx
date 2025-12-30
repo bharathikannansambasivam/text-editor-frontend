@@ -29,12 +29,9 @@ function CreateDocument() {
   };
   return (
     <div className="md:flex">
-      <div className="  ">
-        <NavBar />
-      </div>
-      <div className=" ">
-        <DocumentForm onSave={handleSave} variables={variables} mode="create" />
-      </div>
+      <NavBar />
+
+      <DocumentForm onSave={handleSave} variables={variables} mode="create" />
     </div>
   );
 }

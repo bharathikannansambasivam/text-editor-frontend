@@ -1,4 +1,4 @@
-import { ShareIcon, TrashIcon } from "@heroicons/react/24/solid";
+import DeleteIcon from "@mui/icons-material/Delete";
 import React, { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
@@ -70,12 +70,9 @@ function DocumentsList({ documents, setDocuments }) {
                           }}
                           className="w-full flex items-center gap-2  justify-center text-left px-4 py-3 text-sm hover:bg-gray-100 text-red-600"
                         >
-                          <TrashIcon className="h-4 w-4" /> Delete
+                          <DeleteIcon /> Delete
                         </button>
-                        <button className="w-full flex items-center justify-center gap-2 text-left px-4 py-3 text-sm hover:bg-gray-100 text-black">
-                          <ShareIcon className="h-4 w-4" />
-                          Share
-                        </button>
+
                         <button
                           className="w-full flex items-center justify-center gap-2 text-left px-4 py-3 text-sm hover:bg-gray-100 text-black"
                           onClick={() => setOpenMenu(null)}
