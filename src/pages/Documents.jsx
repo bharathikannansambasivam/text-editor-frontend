@@ -14,6 +14,8 @@ function Documents() {
   const navigate = useNavigate();
   const fetchDocuments = async () => {
     const data = await getDocuments();
+    console.log("documents api:", data);
+
     setDocuments(data);
     setIsLoading(false);
   };
@@ -22,9 +24,8 @@ function Documents() {
     fetchDocuments();
   }, []);
   const documentLength = documents.length;
-  const recentDoc = documents
-    .slice(documentLength - 5, documentLength)
-    .reverse();
+  const recentDoc = documents.slice(0, 5);
+
   return (
     <div className="p-5 md:max-w-[85vw] ">
       <div className="">
