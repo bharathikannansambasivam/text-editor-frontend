@@ -10,6 +10,8 @@ function Profile() {
   const handleLogout = () => {
     localStorage.removeItem("fmd_user_email");
     localStorage.removeItem("fmd_user_name");
+    localStorage.removeItem("fmd_user_token");
+
     localStorage.removeItem("fmd_user_id");
     navigate("/login");
   };

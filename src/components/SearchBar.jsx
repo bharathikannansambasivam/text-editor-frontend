@@ -61,7 +61,7 @@ function SearchBar({ setSearch }) {
           </Button>
         </div>
 
-        <Dropdown>
+        {/* <Dropdown>
           <DropdownButton outline className="h-full  px-2">
             <SwapVertRoundedIcon className="h-5 w-10 !text-black" color="red" />
           </DropdownButton>
@@ -83,7 +83,7 @@ function SearchBar({ setSearch }) {
               Last 1 year
             </DropdownItem>
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
         <Profile />
       </div>
 

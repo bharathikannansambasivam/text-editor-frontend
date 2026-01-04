@@ -6,7 +6,12 @@ import { deleteDocument } from "../api/api";
 import pdf from "/pdf.png";
 function DocumentsList({ documents, setDocuments }) {
   const [openMenu, setOpenMenu] = useState(null);
-  const allDocs = documents;
+  const allDocs = [...documents].sort(
+    (a, b) =>
+      new Date(b.updatedAt || b.createdAt) -
+      new Date(a.updatedAt || a.createdAt)
+  );
+
   const navigate = useNavigate();
   const handleDelete = async (id) => {
     deleteDocument(id);

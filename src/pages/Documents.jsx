@@ -21,8 +21,10 @@ function Documents() {
   useEffect(() => {
     fetchDocuments();
   }, []);
-
-  const recentDoc = documents.slice(0, 5);
+  const documentLength = documents.length;
+  const recentDoc = documents
+    .slice(documentLength - 5, documentLength)
+    .reverse();
   return (
     <div className="p-5 md:max-w-[85vw] ">
       <div className="">

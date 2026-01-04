@@ -7,15 +7,14 @@ import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 function VariableList({ refresh, onEdit, setIsOpen }) {
   const [variables, setVariables] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   const fetchVariables = async () => {
     const response = await getVariables();
-    setVariables(response.data);
+    setVariables(response);
     setIsLoading(false);
   };
-  const handleEdit = async (key, value, id) => {
+  const handleEdit = (key, value, id) => {
     onEdit(key, value, id);
-    setIsOpen(true);
-    console.log(key, value, id);
   };
   const handleDel = async (id) => {
     await deleteVariable(id);
@@ -33,6 +32,7 @@ function VariableList({ refresh, onEdit, setIsOpen }) {
         </div>
       ) : (
         <div>
+          {console.log(variables.length)}
           {variables.length == 0 ? (
             <p className="font-bold text-xl mt-24 text-center text-gray-700">
               No variables found. Add one to get started.
@@ -51,6 +51,7 @@ function VariableList({ refresh, onEdit, setIsOpen }) {
                 <tbody className="divide-y divide-gray-200">
                   {variables.map((item, i) => (
                     <tr key={i} className="hover:bg-gray-50 ">
+                      {console.log(item)}
                       <td className="px-6 py-3 font-medium text-gray-900 text-center">
                         {item.key}
                       </td>

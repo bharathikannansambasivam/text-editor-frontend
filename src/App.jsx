@@ -18,13 +18,13 @@ import GetStarted from "./pages/GetStarted";
 import Help from "./pages/Help";
 
 const ProtectedRoute = ({ children }) => {
-  const userId = localStorage.getItem("fmd_user_id");
-  return userId ? children : <Navigate to="/login" />;
+  const token = localStorage.getItem("fmd_user_token");
+  return token ? children : <Navigate to="/login" />;
 };
 
 const PublicRoute = ({ children }) => {
-  const userId = localStorage.getItem("fmd_user_id");
-  return userId ? <Navigate to="/dashboard" /> : children;
+  const token = localStorage.getItem("fmd_user_token");
+  return token ? <Navigate to="/dashboard" /> : children;
 };
 
 function LayoutWrapper() {
@@ -112,13 +112,14 @@ function LayoutWrapper() {
           />
 
           <Route
-            path="/AI"
+            path="/ai"
             element={
               <ProtectedRoute>
                 <AI />
               </ProtectedRoute>
             }
           />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
     </div>

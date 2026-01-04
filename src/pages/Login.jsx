@@ -17,13 +17,21 @@ function Login() {
     },
     validationSchema: loginSchema,
     onSubmit: async (values) => {
-      setIsLoading(true);
-      const response = await login(values);
-      if (response?.data?.userId) {
-        navigate("/dashboard");
-        setIsLoading(false);
-      } else {
-        alert("Invalid credentials");
+      try {
+        setIsLoading(true);
+
+        const response = await login(values);
+        console.log(response);
+        if (response?.userId) {
+          navigate("/dashboard");
+        } else {
+          console.log(response);
+
+          alert("Invalid credentials");
+        }
+      } catch (err) {
+        alert("Login failed");
+      } finally {
         setIsLoading(false);
       }
     },

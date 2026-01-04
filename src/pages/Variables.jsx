@@ -20,9 +20,18 @@ function Variable() {
   let [value, setValue] = useState("");
   const [editId, setEditID] = useState("");
   const [refresh, setRefresh] = useState(false);
+
+  const handleEdit = (key, value, id) => {
+    setEditID(id);
+    setKey(key);
+    setValue(value);
+    setIsOpen(true);
+  };
+
   const handleVariable = async () => {
     if (editId) {
-      await editVariable(key, value, editId);
+      const res = await editVariable(editId, key, value);
+      console.log(res);
     } else {
       await createVariable(key, value);
     }
@@ -33,12 +42,6 @@ function Variable() {
     setRefresh(!refresh);
   };
 
-  const handleEdit = async (key, value, id) => {
-    await editVariable(key, value, id);
-    setEditID(id);
-    setKey(key);
-    setValue(value);
-  };
   return (
     <div className="p-5">
       <div className="mt-6 flex justify-between items-center px-10">

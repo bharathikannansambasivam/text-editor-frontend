@@ -13,8 +13,8 @@ function EditDocument() {
   const fetchDocument = async () => {
     try {
       const doc = await getDocument(id);
-      setOldTitle(doc.data.title);
-      setOldText(doc.data.text);
+      setOldTitle(doc.title);
+      setOldText(doc.text);
       console.log(doc);
     } catch (error) {
       console.log(error);
