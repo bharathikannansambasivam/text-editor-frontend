@@ -23,10 +23,17 @@ function SignUp() {
       try {
         setIsLoading(true);
 
-        await signup(values);
+        const res = await signup(values);
+        if (res.data.status == 400) {
+          alert(response.data.message || "Something went wrong!");
+        }
         navigate("/login");
       } catch (err) {
-        console.log(err);
+        if (err.response?.status == 400) {
+          alert(err.response.data.message);
+        } else {
+          alert("Something went wrong! Please try again later.");
+        }
       } finally {
         setIsLoading(false);
       }
@@ -114,6 +121,7 @@ function SignUp() {
                 >
                   Email Address
                 </label>
+
                 <input
                   className="border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none p-3 w-full rounded-2xl text-sm bg-slate-50"
                   name="email"
