@@ -8,6 +8,7 @@ import {
   Input,
   Label,
 } from "@headlessui/react";
+import loader from "../../public/loading.svg";
 import { DialogActions, DialogBody } from "../catalyst/dialog";
 
 import VariableList from "../components/VariableList";
@@ -17,6 +18,7 @@ import { useNavigate, useParams } from "react-router-dom";
 function Variable() {
   let [isOpen, setIsOpen] = useState(false);
   let [key, setKey] = useState("");
+  const [loading, setLoading] = useState(false);
   let [value, setValue] = useState("");
   const [editId, setEditID] = useState("");
   const [refresh, setRefresh] = useState(false);
@@ -30,11 +32,16 @@ function Variable() {
 
   const handleVariable = async () => {
     if (editId) {
+      setLoading(true);
+
       const res = await editVariable(editId, key, value);
       console.log(res);
     } else {
+      setLoading(true);
+
       await createVariable(key, value);
     }
+    setLoading(false);
     setIsOpen(false);
     setKey("");
     setEditID("");
@@ -55,49 +62,53 @@ function Variable() {
       <Dialog open={isOpen} onClose={setIsOpen} className="">
         <div className="fixed inset-0 bg-black/40" />
 
-        <div className="fixed inset-0   flex flex-col items-center justify-center p-4">
-          <div className="sm:w-full max-w-md rounded-2xl bg-white shadow-xl">
-            <div className="p-6 flex flex-col justify-center ">
-              <DialogTitle className="text-lg font-bold">
-                Add Variable
-              </DialogTitle>
-              <DialogDescription className="text-sm text-gray-500 mb-4">
-                Add variable for easy access.
-              </DialogDescription>
-
-              <DialogBody className="space-y-6">
-                <Field>
-                  <Label>Key</Label>
-                  <Input
-                    className="border p-2 rounded-lg w-full text-black"
-                    placeholder="Enter key"
-                    value={key}
-                    onChange={(e) => setKey(e.target.value)}
-                  />
-                </Field>
-                <Field>
-                  <Label>Value</Label>
-                  <Input
-                    className="border p-2 rounded-lg w-full text-black"
-                    placeholder="Enter value"
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                  />
-                </Field>
-              </DialogBody>
-
-              <DialogActions className="">
-                <Button onClick={() => setIsOpen(false)}>Cancel</Button>
-                <Button
-                  className="bg-blue-500 text-white"
-                  onClick={handleVariable}
-                >
-                  {editId ? "Update" : "Add"}
-                </Button>
-              </DialogActions>
+        {loading ? (
+          <div className="fixed inset-0 flex flex-col items-center justify-center bg-black/10 backdrop-blur-sm">
+            <img src={loader} width="50" height="50" />
+          </div>
+        ) : (
+          <div className="fixed inset-0   flex flex-col items-center justify-center p-4">
+            <div className="sm:w-full max-w-md rounded-2xl bg-white shadow-xl">
+              <div className="p-6 flex flex-col justify-center ">
+                <DialogTitle className="text-lg font-bold">
+                  Add Variable
+                </DialogTitle>
+                <DialogDescription className="text-sm text-gray-500 mb-4">
+                  Add variable for easy access.
+                </DialogDescription>
+                <DialogBody className="space-y-6">
+                  <Field>
+                    <Label>Key</Label>
+                    <Input
+                      className="border p-2 rounded-lg w-full text-black"
+                      placeholder="Enter key"
+                      value={key}
+                      onChange={(e) => setKey(e.target.value)}
+                    />
+                  </Field>
+                  <Field>
+                    <Label>Value</Label>
+                    <Input
+                      className="border p-2 rounded-lg w-full text-black"
+                      placeholder="Enter value"
+                      value={value}
+                      onChange={(e) => setValue(e.target.value)}
+                    />
+                  </Field>
+                </DialogBody>
+                <DialogActions className="">
+                  <Button onClick={() => setIsOpen(false)}>Cancel</Button>
+                  <Button
+                    className="bg-blue-500 text-white"
+                    onClick={handleVariable}
+                  >
+                    {editId ? "Update" : "Add"}
+                  </Button>
+                </DialogActions>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </Dialog>
 
       <VariableList

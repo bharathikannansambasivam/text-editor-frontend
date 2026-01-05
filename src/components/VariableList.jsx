@@ -52,7 +52,7 @@ function VariableList({ refresh, onEdit, setIsOpen }) {
                   {variables.map((item, i) => (
                     <tr key={i} className="hover:bg-gray-50  ">
                       {console.log(item)}
-                      <td className="px-6 py-3 font-medium text-gray-900 text-center">
+                      <td className="px-6 py-3 font-medium text-gray-900 text-center break-words">
                         {item.key}
                       </td>
                       <td className="px-6 py-3 text-center text-gray-700 max-w-xs break-words  ">
