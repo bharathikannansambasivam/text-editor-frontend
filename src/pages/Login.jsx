@@ -41,7 +41,12 @@ function Login() {
     <div className="min-h-screen w-screen bg-[#f3f4f8] flex items-center justify-center px-4">
       <div>
         {isLoading ? (
-          <img src={loader} />
+          <div className="fixed inset-0 flex flex-col items-center justify-center bg-black/10 backdrop-blur-sm">
+            <img src={loader} width="50" height="50" />
+            <p className="text-sm text-gray-600 mt-2 animate-pulse">
+              Loading your data… this may take a few seconds on first visit.
+            </p>
+          </div>
         ) : (
           <div className="w-full max-w-4xl bg-white rounded-3xl shadow-lg border border-slate-200 flex flex-col md:flex-row overflow-hidden">
             <div className="hidden md:flex md:w-1/2 flex-col justify-between bg-gradient-to-b from-purple-600 via-indigo-500 to-blue-500 text-white p-8">

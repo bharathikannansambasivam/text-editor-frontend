@@ -39,7 +39,7 @@ function VariableList({ refresh, onEdit, setIsOpen }) {
             </p>
           ) : (
             <div className="mt-6 rounded-xl shadow border border-gray-200">
-              <table className="w-full text-left text-sm">
+              <table className="w-full text-sm table-fixed">
                 <thead className="bg-gray-50 text-gray-700 text-sm uppercase ">
                   <tr>
                     <th className="px-6 py-3 text-center">Key</th>
@@ -48,14 +48,14 @@ function VariableList({ refresh, onEdit, setIsOpen }) {
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-gray-200 ">
                   {variables.map((item, i) => (
-                    <tr key={i} className="hover:bg-gray-50 ">
+                    <tr key={i} className="hover:bg-gray-50  ">
                       {console.log(item)}
                       <td className="px-6 py-3 font-medium text-gray-900 text-center">
                         {item.key}
                       </td>
-                      <td className="px-6 py-3 text-gray-700 text-center">
+                      <td className="px-6 py-3 text-center text-gray-700 max-w-xs break-words  ">
                         {item.value}
                       </td>
 

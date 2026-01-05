@@ -56,7 +56,7 @@ function Variable() {
         <div className="fixed inset-0 bg-black/40" />
 
         <div className="fixed inset-0   flex flex-col items-center justify-center p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white shadow-xl">
+          <div className="sm:w-full max-w-md rounded-2xl bg-white shadow-xl">
             <div className="p-6 flex flex-col justify-center ">
               <DialogTitle className="text-lg font-bold">
                 Add Variable
