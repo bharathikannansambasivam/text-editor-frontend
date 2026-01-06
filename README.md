@@ -1,12 +1,74 @@
-# React + Vite
+🚀 FindMyDocs – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FindMyDocs is a modern document management web application frontend built with React.
+It enables users to create, edit, search, preview, and manage documents through a clean, fast, and responsive UI.
 
-Currently, two official plugins are available:
+This repository contains only the frontend of the application.
+The backend is maintained separately.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 Live Links
 
-## Expanding the ESLint configuration
+🔗 Web App
+https://text-editor-frontend-teal.vercel.app/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📱 Android App (TWA – Play Store)
+https://play.google.com/store/apps/details?id=app.vercel.text_editor_frontend_teal.twa&hl=en_IN
+
+✨ Features
+
+🔐 User authentication (Login & Signup)
+
+📝 Create, edit, and delete documents
+
+🖊️ Rich text editor with live preview
+
+🕒 Recent documents view
+
+🔍 Smart document search
+
+🧩 Variable (key–value) management
+
+🤖 AI assistant for content help
+
+🛡️ JWT-protected routes
+
+📱 Fully responsive UI
+
+📦 Deployed as a Trusted Web Activity (TWA)
+
+🛠️ Tech Stack
+
+React
+
+React Router
+
+Axios
+
+Tailwind CSS
+
+Formik & Yup
+
+React Quill
+
+JWT Authentication
+
+Vite
+
+▶️ Run Locally
+npm install
+npm run dev
+
+ℹ️ Notes
+
+Backend is required for full functionality
+
+JWT token is stored in localStorage
+
+Axios interceptor automatically attaches the token
+
+Backend repository is maintained separately
+
+👨‍💻 Developer
+
+Bharathikannan
+MERN Stack Developer
