@@ -24,7 +24,7 @@ function EditDocument() {
   const fetchVariables = async () => {
     try {
       const res = await getVariables();
-      setVariables(res.data);
+      setVariables(res);
     } catch (error) {
       console.log(error);
     }

@@ -110,6 +110,10 @@ function Variable() {
           </div>
         )}
       </Dialog>
+      <p className="mb-3 text-sm text-blue-800 p-3 mt-2 rounded-xl bg-blue-100 ">
+        Use variables like <b>{"{{name}}"} </b>
+        to reuse saved values inside documents.
+      </p>
 
       <VariableList
         refresh={refresh}

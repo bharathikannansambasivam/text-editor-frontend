@@ -15,7 +15,7 @@ export const createDocument = async (title, text) => {
   return res.data;
 };
 
-export const updateDocument = async (id, title, text) => {
+export const updateDocument = async (title, text, id) => {
   const res = await axiosInstance.put(`/edit-document/${id}`, { title, text });
   return res.data;
 };
@@ -75,5 +75,6 @@ export const logout = () => {
 };
 export const chatWithAI = async (message) => {
   const res = await axiosInstance.post("/ai", { message });
+  console.log(res);
   return res.data.reply;
 };
