@@ -40,7 +40,11 @@ function DocumentForm({
   const downloadPdf = () => {
     const element = document.createElement("div");
     element.innerHTML = replacePlaceholders(text);
-    const opt = { margin: 10, filename: `${title || "document"}.pdf` };
+    const opt = {
+      margin: 10,
+      padding: 64,
+      filename: `${title || "document"}.pdf`,
+    };
     html2pdf().from(element).set(opt).save();
   };
   const handleSave = () => {

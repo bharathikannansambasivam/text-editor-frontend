@@ -3,9 +3,12 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useState } from "react";
 import { chatWithAI } from "../api/api.jsx";
 import { useNavigate } from "react-router-dom";
+import loader from "../../public/loading.svg";
+
 function AI() {
   const [query, setQuery] = useState("");
   const [AIResponses, setAIResponses] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async () => {
     try {
@@ -13,10 +16,12 @@ function AI() {
         alert("query cannot be empty!");
         return;
       }
+      setLoading(true);
       const result = await chatWithAI(query);
 
       setAIResponses((prev) => [...prev, { query, result }]);
       setQuery("");
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -36,6 +41,11 @@ function AI() {
           <h2 className="font-semibold">AI Assistant</h2>
         </div>
       </div>
+      {loading && (
+        <div className="flex justify-center items-center   h-screen w-screen absolute bg-black/5  py-4">
+          <img src={loader} className="w-10 h-10 " />
+        </div>
+      )}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 mb-20 md:mb-0">
         {AIResponses.map((item, index) => (
           <div key={index} className="space-y-2">
